@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Admin View</title>
+</head>
+<body>
+    <h1>Custom Admin View</h1>
+    <ul>
+        {% for nurse in nurses %}
+            <li>{{ nurse.name }} - {{ nurse.skill_level }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

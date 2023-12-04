@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nurse Scheduling</title>
+</head>
+<body>
+    <h1>Nurse Scheduling</h1>
+
+    <!-- Nurse Scheduling Form -->
+    <form method="post">
+        {% csrf_token %}
+        
+        <!-- Select Nurse -->
+        <label for="{{ form.nurse.id_for_label }}">Select Nurse:</label>
+        {{ form.nurse }}
+        
+        <br>
+
+        <!-- Select Shift -->
+        <label for="{{ form.shift.id_for_label }}">Select Shift:</label>
+        {{ form.shift }}
+        
+        <br>
+
+        <!-- Select Date -->
+        <label for="{{ form.day.id_for_label }}">Select Date:</label>
+        {{ form.day }}
+        
+        <br>
+
+        <!-- Submit Button -->
+        <button type="submit">Schedule Nurse</button>
+    </form>
+
+    <!-- Display Schedules -->
+    <h2>Schedules</h2>
+    <ul>
+        {% for schedule in schedules %}
+            <li>{{ schedule.nurse.name }} - {{ schedule.shift.name }} - {{ schedule.day }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
